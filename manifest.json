@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "repeatify",
+  "author": "okamuuu",
+  "version": "1.0.0",
+  "description": "repeatify video player",
+  "permissions": ["activeTab", "tabs", "storage"],
+  "browser_action": {
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script/index.js"]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "chrome-extension-replay",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "",
+  "scripts": {
+    "copy": "cpx manifest.json build",
+    "clear": "rimraf build/* && npm run copy",
+    "prestart": "npm run clear",
+    "predev": "npm run copy",
+    "dev": "parcel watch src/content-script/index.tsx src/popup/popup.html src/background.ts --out-dir build --no-hmr",
+    "prebuild": "npm run clear",
+    "build": "parcel build src/content-script/index.tsx src/popup/popup.html src/background.ts --out-dir build --no-content-hash",
+    "zip": "zip dist/chrome-extension-repeatify.zip -r build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@types/chrome": "0.0.88",
+    "autoprefixer": "^9.6.1",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "cpx": "^1.5.0",
+    "parcel-bundler": "^1.12.3",
+    "postcss-modules": "^1.4.1",
+    "rimraf": "^3.0.0",
+    "sass": "^1.23.0-module.beta.1",
+    "typescript": "^3.6.2"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "babel-polyfill": "^6.26.0",
+    "react": ">= 16.3.0",
+    "react-dom": ">= 16.3.0",
+    "styled-components": "^4.4.0"
+  }
+}
