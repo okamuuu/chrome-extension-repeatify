@@ -1,12 +1,4 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import App from "./App";
-
 const TIME_REGEX = /^([0-9])?:?([0-5]?[0-9]):([0-5][0-9])$/
-
-// function isValidTime(videoDuration, startTime, endTime) {
-//   return endTime > startTime && videoDuration > endTime) {
-// }
 
 // XXX: toTime ?
 function toSeconds(formattedTime: string): number {
@@ -43,9 +35,6 @@ video.addEventListener('timeupdate', loop)
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
-  console.log('----')
-  console.log(request)
-
   video.style.transform = request.flipped ? 'scale(-1, 1)' : 'scale(1, 1)';
   video.playbackRate = request.playbackRate;
 
@@ -57,13 +46,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     isVideoRepeatable = false
   }
   
-  console.log(startTime, endTime, isVideoRepeatable)
-
   sendResponse({status: true});
   return true
 });
-
-// const mountPoint = document.createElement("div");
-// mountPoint.id = "root";
-// document.body.prepend(mountPoint);
-// ReactDOM.render(<App />, mountPoint);
